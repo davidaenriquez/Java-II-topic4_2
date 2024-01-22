@@ -9,12 +9,22 @@ import java.util.Scanner;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * DemoJsonFiles class for handling JSON serialization and deserialization of Car objects.
+ */
 public class DemoJsonFiles {
 	
+	/**
+	 * Saves a Car object to a JSON file.
+	 *
+	 * @param filename The name of the file to save to.
+	 * @param car      The Car object to be saved.
+	 * @param append   If true, appends to the file; otherwise, overwrites the file.
+	 */
 	private static void saveToFile(String filename, Car car, boolean append) {
 		PrintWriter pw = null;
 		try {
-			// Create a file File to write
+			// Create a file to write
 			// Discussion: How and why would a BufferedWriter improve this code?
 			File file = new File(filename);
 			FileWriter fw = new FileWriter(file, append);
@@ -42,11 +52,17 @@ public class DemoJsonFiles {
 		}
 	}
 	
+	/**
+	 * Reads Car objects from a JSON file.
+	 *
+	 * @param filename The name of the file to read from.
+	 * @return An ArrayList of Car objects read from the file.
+	 */
 	private static ArrayList<Car> readFromFile(String filename) {
 		
 		ArrayList<Car> cars = new ArrayList<Car>();
 		try {
-			// Open the file File to read
+			// Open the file to read
 			// Discussion: How and why would a BufferedReader improve this code?
 			File file = new File(filename);
 			Scanner s = new Scanner(file);
@@ -73,6 +89,11 @@ public class DemoJsonFiles {
 		return cars;
 	}
 	
+	/**
+	 * The main method to demonstrate JSON serialization and deserialization of Car objects.
+	 *
+	 * @param args The command-line arguments.
+	 */
 	public static void main(String[] args) {
 	    // Create some Cars using an array
 	    Car[] cars = new Car[5];
@@ -100,5 +121,4 @@ public class DemoJsonFiles {
 	        e.printStackTrace();
 	    }
 	}
-
 }
